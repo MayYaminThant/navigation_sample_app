@@ -61,79 +61,78 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            physics: const AlwaysScrollableScrollPhysics(),
-            child: Container(
-              constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width,
-                maxHeight: MediaQuery.of(context).size.height,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(22),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Container(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width,
+                  maxHeight: MediaQuery.of(context).size.height,
+                ),
+                child: DataTable2(
+                    horizontalScrollController: ScrollController(),
+                    headingRowColor:
+                        MaterialStateColor.resolveWith((states) => Colors.blue),
+                    columnSpacing: 12,
+                    horizontalMargin: 12,
+                    headingRowDecoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                    ),
+                    // border: TableBorder.all(
+                    //   borderRadius: BorderRadius.circular(22),
+                    //   color: Colors.transparent,
+                    // ),
+                    columns: const [
+                      DataColumn2(
+                        label: Text('Column A'),
+                        size: ColumnSize.L,
+                      ),
+                      DataColumn(
+                        label: Text('Column B'),
+                      ),
+                      DataColumn(
+                        label: Text('Column C'),
+                      ),
+                      DataColumn(
+                        label: Text('Column D'),
+                      ),
+                      DataColumn(
+                        label: Text('Column E'),
+                        numeric: true,
+                      ),
+                      DataColumn(
+                        label: Text('Column F'),
+                        numeric: true,
+                      ),
+                      DataColumn(
+                        label: Text('Column G'),
+                        numeric: true,
+                      ),
+                      DataColumn(
+                        label: Text('Column H'),
+                        numeric: true,
+                      ),
+                      DataColumn(
+                        label: Text('Column I'),
+                        numeric: true,
+                      ),
+                    ],
+                    rows: List<DataRow>.generate(
+                        100,
+                        (index) => DataRow(cells: [
+                              DataCell(Text('A' * (10 - index % 10))),
+                              DataCell(Text('B' * (10 - (index + 5) % 10))),
+                              DataCell(Text('C' * (15 - (index + 5) % 10))),
+                              DataCell(Text('D' * (15 - (index + 10) % 10))),
+                              DataCell(Text('E' * (10 - (index + 5) % 10))),
+                              DataCell(Text('F' * (15 - (index + 5) % 10))),
+                              DataCell(Text('G' * (15 - (index + 10) % 10))),
+                              DataCell(Text('H' * (15 - (index + 10) % 10))),
+                              DataCell(Text(((index + 0.1) * 25.4).toString()))
+                            ]))),
               ),
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(22),
-              ),
-              child: DataTable2(
-                  horizontalScrollController: ScrollController(),
-                  headingRowColor:
-                      MaterialStateColor.resolveWith((states) => Colors.blue),
-                  columnSpacing: 12,
-                  horizontalMargin: 12,
-                  headingRowDecoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
-                  ),
-                  // border: TableBorder.all(
-                  //   borderRadius: BorderRadius.circular(22),
-                  //   color: Colors.transparent,
-                  // ),
-                  columns: const [
-                    DataColumn2(
-                      label: Text('Column A'),
-                      size: ColumnSize.L,
-                    ),
-                    DataColumn(
-                      label: Text('Column B'),
-                    ),
-                    DataColumn(
-                      label: Text('Column C'),
-                    ),
-                    DataColumn(
-                      label: Text('Column D'),
-                    ),
-                    DataColumn(
-                      label: Text('Column E'),
-                      numeric: true,
-                    ),
-                    DataColumn(
-                      label: Text('Column F'),
-                      numeric: true,
-                    ),
-                    DataColumn(
-                      label: Text('Column G'),
-                      numeric: true,
-                    ),
-                    DataColumn(
-                      label: Text('Column H'),
-                      numeric: true,
-                    ),
-                    DataColumn(
-                      label: Text('Column I'),
-                      numeric: true,
-                    ),
-                  ],
-                  rows: List<DataRow>.generate(
-                      100,
-                      (index) => DataRow(cells: [
-                            DataCell(Text('A' * (10 - index % 10))),
-                            DataCell(Text('B' * (10 - (index + 5) % 10))),
-                            DataCell(Text('C' * (15 - (index + 5) % 10))),
-                            DataCell(Text('D' * (15 - (index + 10) % 10))),
-                            DataCell(Text('E' * (10 - (index + 5) % 10))),
-                            DataCell(Text('F' * (15 - (index + 5) % 10))),
-                            DataCell(Text('G' * (15 - (index + 10) % 10))),
-                            DataCell(Text('H' * (15 - (index + 10) % 10))),
-                            DataCell(Text(((index + 0.1) * 25.4).toString()))
-                          ]))),
             ),
           ),
         ),
