@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
@@ -37,14 +39,26 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   ByteData? fontData;
+  // late Uint8List fontData;
+  pw.Font? pyidaungsu;
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      fontData = await rootBundle.load("assets/font/PyidaungsuRegular.ttf");
-      setState(() {});
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+    //   fontData = await rootBundle.load("font/PyidaungsuRegular.ttf");
+    //   setState(() {});
+    // });
+    Future.delayed(Duration.zero, () => loadFont());
     super.initState();
+  }
+
+  loadFont() async {
+    fontData = await rootBundle.load("assets/font/Pyidaungsu2.ttf");
+    pyidaungsu = await fontFromAssetBundle('assets/font/Pyidaungsu2.ttf');
+    // pyidaungsu = pw.Font.ttf(fontData!);
+    // fontData = File('assets/font/PyidaungsuRegular.ttf').readAsBytesSync();
+    // pyidaungsu = pw.Font.ttf(fontData.buffer.asByteData());
+    setState(() {});
   }
 
   @override
@@ -97,11 +111,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   pw.Text(
-                    'https://www.sssretail.com',
+                    '''https://www.sssretail.com
+                    ထွန်းအောင်လင်း
+                    ထွန်းေအာင်လင်း''',
                     textAlign: pw.TextAlign.center,
                     style: pw.TextStyle(
                       color: PdfColor.fromHex("#000000"),
                       fontSize: 7,
+                      font: pyidaungsu
                     ),
                   ),
                   pw.SizedBox(height: 30),
@@ -126,7 +143,11 @@ class _MyHomePageState extends State<MyHomePage> {
           style: pw.TextStyle(
             color: PdfColor.fromHex("#262927"),
             fontSize: 8.8,
-            font: fontData != null ? pw.Font.ttf(fontData!) : null,
+            font: pyidaungsu,
+            fontFallback: [
+              pyidaungsu!
+            ]
+            // font: fontData != null ? pw.Font.ttf(fontData!) : null,
           ),
         ),
       ),
@@ -135,12 +156,14 @@ class _MyHomePageState extends State<MyHomePage> {
         width: PdfPageFormat.roll80.width,
         padding: const pw.EdgeInsets.only(right: 8),
         child: pw.Text(
-          '၀ယ္ၿပီးပစၥည္း ျပန္မလဲေပးပါ။', //zawgyi
+          'ဝယ်ြပီးပစ္စည်း ြပန်မလဲေပးပါ',
+          // '၀ယ္ၿပီးပစၥည္း ျပန္မလဲေပးပါ။', //zawgyi
           textAlign: pw.TextAlign.center,
           style: pw.TextStyle(
             color: PdfColor.fromHex("#262927"),
             fontSize: 8.8,
-            font: fontData != null ? pw.Font.ttf(fontData!) : null,
+            font: pyidaungsu
+            // font: fontData != null ? pw.Font.ttf(fontData!) : null,
           ),
         ),
       ),
