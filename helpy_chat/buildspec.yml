@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Pre Build started on `date`
+      - flutter pub get
+      - cd patch
+      - ./patch.sh
+      - cd ..
+  build:
+    commands:
+      - echo Build started on `date`
+      - flutter build apk --no-shrink
+      - ls -lah
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - build/app/outputs/apk/release/*.apk
+  discard-paths: yes

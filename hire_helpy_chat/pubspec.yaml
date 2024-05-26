@@ -1,0 +1,116 @@
+name: dh_employer
+description: Phluid Hire Helpy App.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+22
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  zego_zimkit:
+    path: packages/zego_zimkit-1.7.1
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  retrofit: ^3.0.1+1
+  flutter_bloc: ^7.3.3
+  equatable: ^2.0.3
+  flutter_hooks: ^0.18.1
+  dio: ^4.0.6
+  get_it: ^7.2.0
+  google_fonts: ^4.0.4
+  animated_text_kit: ^4.2.2
+  outline_gradient_button: ^2.0.1+1
+  cached_network_image: ^3.2.3
+  iconsax: ^0.0.8
+  dropdown_search: ^2.0.1
+  flutter_carousel_slider: ^1.1.0
+  firebase_core: ^2.15.0
+  firebase_dynamic_links: ^5.3.4
+  firebase_messaging: ^14.6.5
+  firebase_auth: ^4.6.1
+  google_sign_in: ^6.1.0
+  flutter_facebook_auth: ^5.0.11
+  gradient_borders: ^1.0.0
+  pinput: ^2.2.31
+  flutter_rating_bar: ^4.0.1
+  hive: ^2.2.3
+  path_provider: ^2.0.15
+  http_parser: ^4.0.2
+  image_picker: ^1.0.4
+  camera: ^0.10.5+2
+  video_player: any
+  date_time_picker: ^2.1.0
+  skeleton_text: ^3.0.0
+  video_thumbnail: ^0.5.3
+  zego_uikit_prebuilt_call: ^3.10.5
+  zego_uikit_signaling_plugin: ^2.2.0
+  badges: ^3.1.1
+  photo_view: ^0.14.0
+  flutter_svg: any
+  permission_handler: ^10.4.3
+  flutter_sms: ^2.3.3
+  flutter_contacts: ^1.1.7+1
+  flutter_share: ^2.0.0
+  intl: any
+  flutter_easyloading: ^3.0.5
+  flutter_local_notifications: ^15.1.0+1
+  sign_in_with_apple: ^5.0.0
+  modal_bottom_sheet: ^2.1.2
+  file_picker: any
+  url_launcher: any
+  #flutter_number_captcha: ^0.0.8
+  google_mobile_ads: ^3.1.0
+  carousel_slider: ^4.2.1
+  connectivity_plus: ^5.0.2
+  flutter_slidable: ^3.0.1
+  shared_preferences: ^2.2.2
+  visibility_detector: ^0.4.0+2
+  mime: ^1.0.4
+  image: ^4.1.7
+  uuid: ^3.0.7
+  chewie: ^1.5.0
+  package_info_plus: ^3.1.2
+  image_cropper: ^4.0.1
+  video_compress: ^3.1.2
+  flutter_image_compress: ^2.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  retrofit_generator: ^4.2.0
+  build_runner: any
+  flutter_launcher_icons: "^0.13.1"
+  flutter_lints: ^2.0.0
+
+scripts:
+  build:mod: flutter build appbundle --dart-define=env=mod
+  build:prod: flutter build appbundle --dart-define=env=prod
+  build:test: flutter build appbundle --dart-define=env=test
+  gen: flutter packages pub run build_runner build --delete-conflicting-outputs
+  icons: flutter pub run flutter_launcher_icons
+
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/icons/
+    - assets/images/
+    - assets/gif/
+    - assets/flags/
+    - assets/svg/

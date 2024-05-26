@@ -1,0 +1,49 @@
+name: zego_zimkit
+description: zego imkit.
+version: 1.7.1
+homepage: https://www.zegocloud.com/
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  zego_plugin_adapter: ^2.3.1
+  zego_uikit_signaling_plugin: ^2.1.10
+  zego_zim: any # depends on zego_uikit_signaling_plugin's zim version
+
+  cupertino_icons: ^1.0.5
+  equatable: ^2.0.5
+  cached_network_image: ^3.2.3
+  permission_handler: ^10.2.0
+  wakelock: ^0.6.2
+  http: ^0.13.5
+  encrypt: ^5.0.1
+  logging: ^1.1.1
+  badges: ^3.0.2
+  async: ^2.0.0
+  video_player: ^2.5.1
+  file_picker: ^5.2.5
+  video_player_macos: ^1.0.6
+  chewie: ^1.4.0
+  provider: ^6.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  dart_code_metrics: any
+  flutter_lints: any
+  import_sorter: any
+
+import_sorter:
+  comments: false
+
+flutter:
+  uses-material-design: true
+
+screenshots:
+  - description: "A full-featured chat kit that enables you to easily build one-on-one or group chat into your app in minutes."
+    path: doc/images/img_chat.png

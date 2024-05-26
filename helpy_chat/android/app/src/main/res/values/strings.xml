@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DH Mobile</string>
+
+     <string name="facebook_app_id">6887835037915206</string>
+     <string name="facebook_client_token">4b43f8446491244b639ac671d99f282c</string>
+
+</resources>
